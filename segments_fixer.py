@@ -6,6 +6,14 @@ from datetime import datetime
 import math
 import string
 
+#
+# #
+# # #
+# # # # SegmentsFixer
+# # #
+# #
+#
+
 # global variables (in python u dont really need to declare them, but just for clarifying)
 
 # user input
