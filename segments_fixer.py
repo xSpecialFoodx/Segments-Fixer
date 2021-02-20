@@ -1030,7 +1030,9 @@ def PatchSequenceBytes():
         # print(CheckHexText(fixed_byte, BytesLength, True))
 
 
-def CheckSequenceBytesText():  # returns the sequence bytes text, None in case of not finding any
+def CheckSequenceBytesText(direction):  # returns the sequence bytes text, None in case of not finding any
+    # gets direction, True goes for first to last byte, False goes for last to first byte
+
     result = None
 
     # Global Variables
@@ -1148,9 +1150,15 @@ def CheckSequenceBytesText():  # returns the sequence bytes text, None in case o
     # Start
 
     if sequence_bytes_amount > 0:
-        sequence_bytes_index = sequence_bytes_amount - 1
+        if direction is True:
+            sequence_bytes_index = 0
+        else:
+            sequence_bytes_index = sequence_bytes_amount - 1
 
-        while sequence_bytes_index >= 0:
+        while (
+            direction is True and sequence_bytes_index < sequence_bytes_amount
+            or direction is False and sequence_bytes_index >= 0
+        ):
             sequence_byte = CheckSequenceByte(sequence_bytes_index)
 
             if sequence_byte is not None:
@@ -1161,7 +1169,10 @@ def CheckSequenceBytesText():  # returns the sequence bytes text, None in case o
             else:
                 break
 
-            sequence_bytes_index -= 1
+            if direction is True:
+                sequence_bytes_index += 1
+            else:
+                sequence_bytes_index -= 1
 
     result = current_result
 
@@ -2885,7 +2896,7 @@ def check_cs():  # returns -1 in case of failure, 0 in case of not finding a mat
                             error_found = True
                         else:
                             if verbose is True:
-                                SequenceBytesText = CheckSequenceBytesText()
+                                SequenceBytesText = CheckSequenceBytesText(True)
 
                             PatchSequenceBytes()
 
@@ -3076,7 +3087,7 @@ def check_static_TP():  # returns -1 in case of failure, 0 in case of not findin
                         error_found = True
                     else:
                         if verbose is True:
-                            SequenceBytesText = CheckSequenceBytesText()
+                            SequenceBytesText = CheckSequenceBytesText(True)
 
                         PatchSequenceBytes()
 
@@ -3351,10 +3362,15 @@ def fix_addresses():
                         error_message.append("position:" + ' ' + str(position) + ' ' + "out of:" + ' ' + str(cmd_fixed_splitted_amount))
 
                     if CreateSequence(current_head, None) is True:
-                        SequenceBytesText = CheckSequenceBytesText()
+                        SequenceBytesText = CheckSequenceBytesText(True)
 
                         if SequenceBytesText is not None:
-                            error_message.append("sequence bytes:" + ' ' + SequenceBytesText)
+                            error_message.append("sequence bytes upwards:" + ' ' + SequenceBytesText)
+
+                        SequenceBytesText = CheckSequenceBytesText(False)
+
+                        if SequenceBytesText is not None:
+                            error_message.append("sequence bytes downwards:" + ' ' + SequenceBytesText)
 
                     print('\t'.join(error_message))
 
