@@ -55,7 +55,10 @@ SizesLength = 8
 AddressesLength = 8
 
 successes = 0
+success_text = None
+
 failures = 0
+failure_text = None
 
 patched_bytes = 0
 
@@ -89,8 +92,6 @@ cs_text_length = len(cs_text)
 static_TP_structures = None
 static_TP_text = "static_TP"
 static_TP_text_length = len(static_TP_text)
-
-exception_text = None
 
 mem_hole_size = SegmentAfterMemHole_Unmapped_VirtualAddress - SegmentAfterMemHole_Mapped_VirtualAddress
 
@@ -305,7 +306,10 @@ def CreateSequence(address, amount):  # returns True if succeed to create the se
     global AddressesLength
 
     # global successes
+    # global success_text
+
     # global failures
+    # global failure_text
 
     # global patched_bytes
 
@@ -339,8 +343,6 @@ def CreateSequence(address, amount):  # returns True if succeed to create the se
     # global static_TP_structures
     # global static_TP_text
     # global static_TP_text_length
-
-    # global exception_text
 
     # global mem_hole_size
 
@@ -456,7 +458,10 @@ def CheckSequenceByte(offset):  # offset from start (0 goes for first cell, 1 fo
     global AddressesLength
 
     # global successes
+    # global success_text
+
     # global failures
+    # global failure_text
 
     # global patched_bytes
 
@@ -490,8 +495,6 @@ def CheckSequenceByte(offset):  # offset from start (0 goes for first cell, 1 fo
     # global static_TP_structures
     # global static_TP_text
     # global static_TP_text_length
-
-    # global exception_text
 
     # global mem_hole_size
 
@@ -588,7 +591,10 @@ def CheckSequenceBytes(offset, amount, min_size, max_size):  # returns True if t
     global AddressesLength
 
     # global successes
+    # global success_text
+
     # global failures
+    # global failure_text
 
     # global patched_bytes
 
@@ -622,8 +628,6 @@ def CheckSequenceBytes(offset, amount, min_size, max_size):  # returns True if t
     # global static_TP_structures
     # global static_TP_text
     # global static_TP_text_length
-
-    # global exception_text
 
     # global mem_hole_size
 
@@ -768,7 +772,10 @@ def PatchSequenceByte(offset, value):  # returns True if succeed to patch the se
     global AddressesLength
 
     # global successes
+    # global success_text
+
     # global failures
+    # global failure_text
 
     global patched_bytes
 
@@ -802,8 +809,6 @@ def PatchSequenceByte(offset, value):  # returns True if succeed to patch the se
     # global static_TP_structures
     # global static_TP_text
     # global static_TP_text_length
-
-    # global exception_text
 
     # global mem_hole_size
 
@@ -911,7 +916,10 @@ def PatchSequenceBytes():
     global AddressesLength
 
     # global successes
+    # global success_text
+
     # global failures
+    # global failure_text
 
     # global patched_bytes
 
@@ -945,8 +953,6 @@ def PatchSequenceBytes():
     # global static_TP_structures
     # global static_TP_text
     # global static_TP_text_length
-
-    # global exception_text
 
     global mem_hole_size
 
@@ -1058,7 +1064,10 @@ def CheckSequenceBytesText(direction):  # returns the sequence bytes text, None 
     global AddressesLength
 
     # global successes
+    # global success_text
+
     # global failures
+    # global failure_text
 
     # global patched_bytes
 
@@ -1092,8 +1101,6 @@ def CheckSequenceBytesText(direction):  # returns the sequence bytes text, None 
     # global static_TP_structures
     # global static_TP_text
     # global static_TP_text_length
-
-    # global exception_text
 
     # global mem_hole_size
 
@@ -1258,7 +1265,10 @@ def CreateStructures():
     global AddressesLength
 
     # global successes
+    # global success_text
+
     # global failures
+    # global failure_text
 
     # global patched_bytes
 
@@ -1292,8 +1302,6 @@ def CreateStructures():
     global static_TP_structures
     # global static_TP_text
     # global static_TP_text_length
-
-    # global exception_text
 
     # global mem_hole_size
 
@@ -1483,7 +1491,10 @@ def CombineStructures():
     global AddressesLength
 
     # global successes
+    # global success_text
+
     # global failures
+    # global failure_text
 
     # global patched_bytes
 
@@ -1517,8 +1528,6 @@ def CombineStructures():
     global static_TP_structures
     # global static_TP_text
     # global static_TP_text_length
-
-    # global exception_text
 
     # global mem_hole_size
 
@@ -1718,7 +1727,10 @@ def TestSequenceBytesOffset(offsets, min_size, max_size):
     global AddressesLength
 
     # global successes
+    # global success_text
+
     # global failures
+    # global failure_text
 
     # global patched_bytes
 
@@ -1752,8 +1764,6 @@ def TestSequenceBytesOffset(offsets, min_size, max_size):
     # global static_TP_structures
     # global static_TP_text
     # global static_TP_text_length
-
-    # global exception_text
 
     # global mem_hole_size
 
@@ -1966,7 +1976,10 @@ def CheckSequenceBytesOffset(structures):  # returns True if found a suitable se
     global AddressesLength
 
     # global successes
+    # global success_text
+
     # global failures
+    # global failure_text
 
     # global patched_bytes
 
@@ -2000,8 +2013,6 @@ def CheckSequenceBytesOffset(structures):  # returns True if found a suitable se
     # global static_TP_structures
     # global static_TP_text
     # global static_TP_text_length
-
-    # global exception_text
 
     # global mem_hole_size
 
@@ -2744,7 +2755,10 @@ def check_cs():  # returns -1 in case of failure, 0 in case of not finding a mat
     global AddressesLength
 
     global successes
+    global success_text
+
     # global failures
+    global failure_text
 
     # global patched_bytes
 
@@ -2778,8 +2792,6 @@ def check_cs():  # returns -1 in case of failure, 0 in case of not finding a mat
     # global static_TP_structures
     # global static_TP_text
     # global static_TP_text_length
-
-    global exception_text
 
     # global mem_hole_size
 
@@ -2846,7 +2858,7 @@ def check_cs():  # returns -1 in case of failure, 0 in case of not finding a mat
                 elif cmd_fixed_splitted_cell[cmd_fixed_splitted_cell_index] == 'h':
                     if cmd_fixed_splitted_cell_index > cs_text_length:
                         if cmd_fixed_splitted_cell_index < cmd_fixed_splitted_cell_length - 1:
-                            exception_text = "can't parse cs (can't handle additions/substractions or any math functions)"
+                            failure_text = "can't parse cs (can't handle additions/substractions or any math functions)"
 
                             error_found = True
                         else:
@@ -2862,7 +2874,7 @@ def check_cs():  # returns -1 in case of failure, 0 in case of not finding a mat
                 CreateSequence(current_head, None)  # no need to check for the result, assuming it is True
 
                 if sequence_bytes_amount < min_bytes_estimated_amount:
-                    exception_text = (
+                    failure_text = (
                         "the sequence bytes amount"
                         + ' ' + str(sequence_bytes_amount)
                         + ' ' + "is smaller than the min bytes estimated amount"
@@ -2875,23 +2887,23 @@ def check_cs():  # returns -1 in case of failure, 0 in case of not finding a mat
 
                     if cs_address >= safe_min_bytes_size and cs_address <= safe_max_bytes_size:
                         if CheckSequenceBytesOffset(cs_structures) is False:
-                            exception_text = "couldn't find a suitable sequence bytes offset"
+                            failure_text = "couldn't find a suitable sequence bytes offset"
 
                             if (
                                 position != cmd_fixed_splitted_amount
                                 and position + 1 != cmd_fixed_splitted_amount
                                 and position + 2 != cmd_fixed_splitted_amount
                             ):
-                                exception_text += ',' + ' ' + "not supporting a command that cs isn't in a range between last cell to 2 cells before it"
+                                failure_text += ',' + ' ' + "not supporting a command that cs isn't in a range between last cell to 2 cells before it"
 
                             if sequence_bytes_offset is not None:
-                                exception_text += '\t' + "offset:" + ' ' + str(sequence_bytes_offset)
+                                failure_text += '\t' + "offset:" + ' ' + str(sequence_bytes_offset)
 
                             if suggested_sequence_bytes_offset is not None:
-                                exception_text += '\t' + "suggested offset:" + ' ' + str(suggested_sequence_bytes_offset)
+                                failure_text += '\t' + "suggested offset:" + ' ' + str(suggested_sequence_bytes_offset)
 
                             if suggested_hardcore_sequence_bytes_offset is not None:
-                                exception_text += '\t' + "suggested hardcore offset:" + ' ' + str(suggested_hardcore_sequence_bytes_offset)
+                                failure_text += '\t' + "suggested hardcore offset:" + ' ' + str(suggested_hardcore_sequence_bytes_offset)
 
                             error_found = True
                         else:
@@ -2900,18 +2912,20 @@ def check_cs():  # returns -1 in case of failure, 0 in case of not finding a mat
 
                             PatchSequenceBytes()
 
+                            success_text = (
+                                "Patched cs bytes"
+                                + '\t' + "address:" + ' ' + CheckHexText(fixed_bytes_address, AddressesLength, True)
+                                + '\t' + "command:" + ' ' + '\t'.join(cmd_fixed_splitted)
+                                + '\t' + "position:" + ' ' + str(position) + ' ' + "out of:" + ' ' + str(cmd_fixed_splitted_amount)
+                                + '\t' + "offset:" + ' ' + str(sequence_bytes_offset)
+                                + '\t' + "cs address:" + ' ' + CheckHexText(cs_address, AddressesLength, True)
+                                + (('\t' + "sequence bytes:" + ' ' + SequenceBytesText) if SequenceBytesText is not None else "")
+                                + '\t' + "original bytes:" + ' ' + CheckHexText(original_bytes_size, original_bytes_amount * 2, True)
+                                + '\t' + "patched bytes:" + ' ' + CheckHexText(fixed_bytes_size, fixed_bytes_amount * 2, True)
+                            )
+
                             if verbose is True:
-                                print(
-                                    "Patched cs bytes"
-                                    + '\t' + "address:" + ' ' + CheckHexText(fixed_bytes_address, AddressesLength, True)
-                                    + '\t' + "command:" + ' ' + '\t'.join(cmd_fixed_splitted)
-                                    + '\t' + "position:" + ' ' + str(position) + ' ' + "out of:" + ' ' + str(cmd_fixed_splitted_amount)
-                                    + '\t' + "offset:" + ' ' + str(sequence_bytes_offset)
-                                    + '\t' + "cs address:" + ' ' + CheckHexText(cs_address, AddressesLength, True)
-                                    + (('\t' + "sequence bytes:" + ' ' + SequenceBytesText) if SequenceBytesText is not None else "")
-                                    + '\t' + "original bytes:" + ' ' + CheckHexText(original_bytes_size, original_bytes_amount * 2, True)
-                                    + '\t' + "patched bytes:" + ' ' + CheckHexText(fixed_bytes_size, fixed_bytes_amount * 2, True)
-                                )
+                                print(success_text)
 
                             successes += 1
 
@@ -2955,7 +2969,10 @@ def check_static_TP():  # returns -1 in case of failure, 0 in case of not findin
     global AddressesLength
 
     global successes
+    global success_text
+
     # global failures
+    global failure_text
 
     # global patched_bytes
 
@@ -2989,8 +3006,6 @@ def check_static_TP():  # returns -1 in case of failure, 0 in case of not findin
     global static_TP_structures
     global static_TP_text
     global static_TP_text_length
-
-    global exception_text
 
     # global mem_hole_size
 
@@ -3052,14 +3067,14 @@ def check_static_TP():  # returns -1 in case of failure, 0 in case of not findin
     if cmd_fixed_splitted_cell_length >= static_TP_text_length:
         if cmd_fixed_splitted_cell[:static_TP_text_length] == static_TP_text:
             if cmd_fixed_splitted_cell_length > static_TP_text_length:
-                exception_text = "can't parse static_TP (can't handle additions/substractions or any math functions)"
+                failure_text = "can't parse static_TP (can't handle additions/substractions or any math functions)"
 
                 error_found = True
             else:
                 CreateSequence(current_head, None)  # no need to check for the result, assuming it is True
 
                 if sequence_bytes_amount < min_bytes_estimated_amount:
-                    exception_text = (
+                    failure_text = (
                         "the sequence bytes amount"
                         + ' ' + str(sequence_bytes_amount)
                         + ' ' + "is smaller than the min bytes estimated amount"
@@ -3069,21 +3084,21 @@ def check_static_TP():  # returns -1 in case of failure, 0 in case of not findin
                     error_found = True
                 else:
                     if CheckSequenceBytesOffset(static_TP_structures) is False:
-                        exception_text = "couldn't find a suitable sequence bytes offset"
+                        failure_text = "couldn't find a suitable sequence bytes offset"
 
                         if (
                             position != cmd_fixed_splitted_amount
                         ):
-                            exception_text += ',' + ' ' + "not supporting a command that static_TP isn't in the last cell"
+                            failure_text += ',' + ' ' + "not supporting a command that static_TP isn't in the last cell"
 
                         if sequence_bytes_offset is not None:
-                            exception_text += '\t' + "offset:" + ' ' + str(sequence_bytes_offset)
+                            failure_text += '\t' + "offset:" + ' ' + str(sequence_bytes_offset)
 
                         if suggested_sequence_bytes_offset is not None:
-                            exception_text += '\t' + "suggested offset:" + ' ' + str(suggested_sequence_bytes_offset)
+                            failure_text += '\t' + "suggested offset:" + ' ' + str(suggested_sequence_bytes_offset)
 
                         if suggested_hardcore_sequence_bytes_offset is not None:
-                            exception_text += '\t' + "suggested hardcore offset:" + ' ' + str(suggested_hardcore_sequence_bytes_offset)
+                            failure_text += '\t' + "suggested hardcore offset:" + ' ' + str(suggested_hardcore_sequence_bytes_offset)
 
                         error_found = True
                     else:
@@ -3092,17 +3107,19 @@ def check_static_TP():  # returns -1 in case of failure, 0 in case of not findin
 
                         PatchSequenceBytes()
 
+                        success_text = (
+                            "Patched static_TP bytes"
+                            + '\t' + "address:" + ' ' + CheckHexText(fixed_bytes_address, AddressesLength, True)
+                            + '\t' + "command:" + ' ' + '\t'.join(cmd_fixed_splitted)
+                            + '\t' + "position:" + ' ' + str(position) + ' ' + "out of:" + ' ' + str(cmd_fixed_splitted_amount)
+                            + '\t' + "offset:" + ' ' + str(sequence_bytes_offset)
+                            + (('\t' + "sequence bytes:" + ' ' + SequenceBytesText) if SequenceBytesText is not None else "")
+                            + '\t' + "original bytes:" + ' ' + CheckHexText(original_bytes_size, original_bytes_amount * 2, True)
+                            + '\t' + "patched bytes:" + ' ' + CheckHexText(fixed_bytes_size, fixed_bytes_amount * 2, True)
+                        )
+
                         if verbose is True:
-                            print(
-                                "Patched static_TP bytes"
-                                + '\t' + "address:" + ' ' + CheckHexText(fixed_bytes_address, AddressesLength, True)
-                                + '\t' + "command:" + ' ' + '\t'.join(cmd_fixed_splitted)
-                                + '\t' + "position:" + ' ' + str(position) + ' ' + "out of:" + ' ' + str(cmd_fixed_splitted_amount)
-                                + '\t' + "offset:" + ' ' + str(sequence_bytes_offset)
-                                + (('\t' + "sequence bytes:" + ' ' + SequenceBytesText) if SequenceBytesText is not None else "")
-                                + '\t' + "original bytes:" + ' ' + CheckHexText(original_bytes_size, original_bytes_amount * 2, True)
-                                + '\t' + "patched bytes:" + ' ' + CheckHexText(fixed_bytes_size, fixed_bytes_amount * 2, True)
-                            )
+                            print(success_text)
 
                         successes += 1
 
@@ -3142,7 +3159,10 @@ def fix_addresses():
     global AddressesLength
 
     # global successes
+    # global success_text
+
     global failures
+    global failure_text
 
     # global patched_bytes
 
@@ -3176,8 +3196,6 @@ def fix_addresses():
     # global static_TP_structures
     # global static_TP_text
     # global static_TP_text_length
-
-    global exception_text
 
     # global mem_hole_size
 
@@ -3284,6 +3302,8 @@ def fix_addresses():
             if cmd_length > 0:
                 # print(cmd)
 
+                failure_text = None
+
                 cmd_fixed = None
                 cmd_fixed_length = None
                 cmd_fixed_splitted = None
@@ -3294,8 +3314,6 @@ def fix_addresses():
                 cmd_fixed_splitted_cell_index = None
 
                 position = None
-
-                exception_text = None
 
                 try:
                     cmd_fixed = cmd.split(';')[0].replace(',', ' ')
@@ -3351,8 +3369,8 @@ def fix_addresses():
 
                     error_message.append("can't parse.")
 
-                    if exception_text is not None:
-                        error_message.append("reason:" + ' ' + exception_text)
+                    if failure_text is not None:
+                        error_message.append("reason:" + ' ' + failure_text)
 
                     error_message.append("address:" + ' ' + CheckHexText(current_head, AddressesLength, True))
 
@@ -3414,7 +3432,10 @@ def main():
     global AddressesLength
 
     global successes
+    # global success_text
+
     global failures
+    # global failure_text
 
     global patched_bytes
 
@@ -3448,8 +3469,6 @@ def main():
     # global static_TP_structures
     # global static_TP_text
     # global static_TP_text_length
-
-    # global exception_text
 
     # global mem_hole_size
 
