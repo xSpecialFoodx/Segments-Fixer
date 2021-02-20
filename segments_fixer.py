@@ -11,7 +11,7 @@ import string
 #
 # #
 # # #
-# # # # SegmentsFixer
+# # # # Segments Fixer
 # # #
 # #
 #
