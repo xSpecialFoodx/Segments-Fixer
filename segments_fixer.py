@@ -3413,12 +3413,12 @@ def main():
     global SizesLength
     global AddressesLength
 
-    # global successes
-    # global failures
+    global successes
+    global failures
 
-    # global patched_bytes
+    global patched_bytes
 
-    # global first_segment_to_segment_before_memhole_matches
+    global first_segment_to_segment_before_memhole_matches
 
     # global heads
     # global heads_amount
@@ -3478,12 +3478,12 @@ def main():
     # global sequence_byte
 
     # global suggested_sequence_bytes_offset
-    # global suggested_sequence_bytes_offset_matches
-    # global suggested_sequence_bytes_offset_mismatches
+    global suggested_sequence_bytes_offset_matches
+    global suggested_sequence_bytes_offset_mismatches
 
     # global suggested_hardcore_sequence_bytes_offset
-    # global suggested_hardcore_sequence_bytes_offset_matches
-    # global suggested_hardcore_sequence_bytes_offset_mismatches
+    global suggested_hardcore_sequence_bytes_offset_matches
+    global suggested_hardcore_sequence_bytes_offset_mismatches
 
     # global original_bytes
     # global original_bytes_address
