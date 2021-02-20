@@ -2907,6 +2907,7 @@ def check_cs():  # returns -1 in case of failure, 0 in case of not finding a mat
                                     + '\t' + "command:" + ' ' + '\t'.join(cmd_fixed_splitted)
                                     + '\t' + "position:" + ' ' + str(position) + ' ' + "out of:" + ' ' + str(cmd_fixed_splitted_amount)
                                     + '\t' + "offset:" + ' ' + str(sequence_bytes_offset)
+                                    + '\t' + "cs address:" + ' ' + CheckHexText(cs_address, AddressesLength, True)
                                     + (('\t' + "sequence bytes:" + ' ' + SequenceBytesText) if SequenceBytesText is not None else "")
                                     + '\t' + "original bytes:" + ' ' + CheckHexText(original_bytes_size, original_bytes_amount * 2, True)
                                     + '\t' + "patched bytes:" + ' ' + CheckHexText(fixed_bytes_size, fixed_bytes_amount * 2, True)
